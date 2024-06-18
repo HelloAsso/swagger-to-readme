@@ -15,25 +15,6 @@ async function downloadSwagger() {
     }
 }
 
-function fixSchemaError(json) {
-    Object.keys(json.paths).forEach(path => {
-        const methods = json.paths[path];
-        Object.keys(methods).forEach(method => {
-            const params = methods[method].parameters;
-            if (params) {
-                params.forEach(param => {
-                    if (param.hasOwnProperty('default')) {
-                        delete param.default;
-                    }
-                });
-            }
-        });
-    });
-
-
-    return json
-}
-
 function readChanges() {
     try {
         const changes = fs.readFileSync('changes.json', 'utf8');
@@ -48,10 +29,10 @@ function modifySwagger(swaggerData, changes) {
     _.merge(swaggerData, changes);
 
     json = JSON.stringify(swaggerData, null, 2);
-    json = json.replaceAll('`1[[HelloAsso.Api.V5.Models.Directory', '')
-        .replaceAll('`1[[HelloAsso.Api.V5.Models.Forms', '')
-        .replaceAll('`1[[HelloAsso.Api.V5.Models.Statistics', '')
-        .replaceAll('`1[[HelloAsso.Api.V5.Models.Payment', '')
+    json = json.replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Directory.', 'ResultsWithPaginationModel_')
+        .replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Forms.', 'ResultsWithPaginationModel_')
+        .replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Statistics.', 'ResultsWithPaginationModel_')
+        .replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Payment.', 'ResultsWithPaginationModel_')
         .replaceAll(', HelloAsso.Api.V5.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]', '')
 
     return json;
@@ -62,7 +43,7 @@ function writeJsonToFile(jsonString, filename) {
     console.log(`Data written to ${filename}`);
 }
 
-async function uploadToReadMe(jsonString, filename) {
+async function uploadToReadMe(jsonString) {
     const formData = new FormData();
     formData.append('spec', jsonString);
 
@@ -75,7 +56,6 @@ async function uploadToReadMe(jsonString, filename) {
     };
 
     try {
-        //const response = await axios.post('https://dash.readme.com/api/v1/api-validation', formData, config);
         const response = await axios.put(`https://dash.readme.com/api/v1/api-specification/${process.env.API_ID}`, formData, config);
         console.log('Swagger successfully uploaded:', response.data);
     } catch (error) {
@@ -85,9 +65,8 @@ async function uploadToReadMe(jsonString, filename) {
 
 async function main() {
     const json = await downloadSwagger();
-    const cleanJson = fixSchemaError(json);
     const changesJson = readChanges();
-    const jsonString = modifySwagger(cleanJson, changesJson);
+    const jsonString = modifySwagger(json, changesJson);
     writeJsonToFile(jsonString, 'output.json');
     uploadToReadMe(jsonString);
 }
