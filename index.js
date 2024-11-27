@@ -90,8 +90,7 @@ async function generateFile() {
 
 function pushToReadme() {
     const jsonString = fs.readFileSync(filePath, 'utf8');
-    console.log(jsonString);
-    //uploadToReadMe(jsonString);
+    uploadToReadMe(jsonString);
 }
 
 inquirer
