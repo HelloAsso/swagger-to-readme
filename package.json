@@ -4,15 +4,16 @@
     "description": "Script to download, modify, and upload a Swagger JSON file to ReadMe.io",
     "main": "index.js",
     "scripts": {
-      "start": "node index.js"
+        "start": "node index.js"
     },
+    "type" :"module",
     "author": "",
     "license": "GPL-3.0",
     "dependencies": {
-      "axios": "latest",
-      "dotenv": "latest",
-      "lodash": "latest",
-      "rdme": "latest"
+        "axios": "latest",
+        "dotenv": "latest",
+        "inquirer": "^12.1.0",
+        "lodash": "latest",
+        "rdme": "latest"
     }
-  }
-  
+}

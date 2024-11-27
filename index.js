@@ -1,9 +1,11 @@
-require('dotenv').config();
-const _ = require('lodash');
-const axios = require('axios');
-const fs = require('fs');
+import 'dotenv/config'
+import _ from "lodash";
+import axios from "axios";
+import fs from "fs";
+import inquirer from "inquirer";
 
 const swaggerUrl = process.env.SWAGGER_URL;
+const filePath = '../helloasso-open-api/helloasso.json';
 
 async function downloadSwagger() {
     try {
@@ -25,10 +27,26 @@ function readChanges() {
     }
 }
 
+function removeSecurityBlocks(obj) {
+    if (Array.isArray(obj)) {
+        return obj.map(removeSecurityBlocks);
+    } else if (obj && typeof obj === 'object') {
+        for (const key in obj) {
+            if (key === 'security' || key === 'securitySchemes') {
+                delete obj[key];
+            } else {
+                obj[key] = removeSecurityBlocks(obj[key]);
+            }
+        }
+    }
+    return obj;
+}
+
 function modifySwagger(swaggerData, changes) {
+    swaggerData = removeSecurityBlocks(swaggerData);
     _.merge(swaggerData, changes);
 
-    json = JSON.stringify(swaggerData, null, 2);
+    var json = JSON.stringify(swaggerData, null, 2);
     json = json.replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Directory.', 'ResultsWithPaginationModel_')
         .replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Forms.', 'ResultsWithPaginationModel_')
         .replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Statistics.', 'ResultsWithPaginationModel_')
@@ -63,12 +81,51 @@ async function uploadToReadMe(jsonString) {
     }
 }
 
-async function main() {
+async function generateFile() {
     const json = await downloadSwagger();
     const changesJson = readChanges();
     const jsonString = modifySwagger(json, changesJson);
-    writeJsonToFile(jsonString, 'output.json');
-    uploadToReadMe(jsonString);
+    writeJsonToFile(jsonString, filePath);
 }
 
-main();
+function pushToReadme() {
+    const jsonString = fs.readFileSync(filePath, 'utf8');
+    console.log(jsonString);
+    //uploadToReadMe(jsonString);
+}
+
+inquirer
+    .prompt([
+        {
+        type: 'list',
+        name: 'action',
+        message: 'Please choose an action:',
+        choices: [
+            'Generate file',
+            'Push to README',
+            'Exit',
+        ],
+        },
+    ])
+    .then((answers) => {
+        switch (answers.action) {
+        case 'Generate file':
+            generateFile();
+            break;
+        case 'Push to README':
+            pushToReadme();
+            break;
+        case 'Exit':
+            console.log('Exiting the wizard. Goodbye!');
+            process.exit(0);
+        default:
+            console.log('Unknown action selected.');
+        }
+    })
+    .catch((error) => {
+        if (error.isTtyError) {
+        console.error('Interactive shell is not supported in this environment.');
+        } else {
+        console.error('An error occurred:', error);
+        }
+    });
