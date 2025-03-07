@@ -85,6 +85,7 @@ async function createPullRequest(jsonString) {
     const repo = process.env.GH_REPO_NAME;
     const baseBranch = process.env.GH_BASE_BRANCH;
     const branchName = `update-swagger-${Date.now()}`;
+    const filePath = 'helloasso.json';
 
     const { data: refData } = await octokit.git.getRef({
         owner,
@@ -101,7 +102,22 @@ async function createPullRequest(jsonString) {
         sha: baseSha
     });
 
-    const filePath = 'helloasso.json';
+    let fileSha = null;
+    try {
+        const { data: fileData } = await octokit.repos.getContent({
+            owner,
+            repo,
+            path: filePath,
+            ref: baseBranch
+        });
+        fileSha = fileData.sha; // SHA actuel du fichier
+    } catch (error) {
+        if (error.status === 404) {
+            console.log("ℹ️ Le fichier n'existe pas encore, il sera créé.");
+        } else {
+            throw error;
+        }
+    }
 
     await octokit.repos.createOrUpdateFileContents({
         owner,
@@ -109,7 +125,8 @@ async function createPullRequest(jsonString) {
         path: filePath,
         message: 'Update helloasso swagger definition',
         content: Buffer.from(jsonString).toString('base64'),
-        branch: branchName
+        branch: branchName,
+        sha: fileSha
     });
 
     const pr = await octokit.pulls.create({
