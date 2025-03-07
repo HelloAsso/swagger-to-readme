@@ -5,7 +5,7 @@ import fs from "fs";
 import { Octokit } from "@octokit/rest";
 
 const swaggerUrl = process.env.SWAGGER_URL;
-const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+const octokit = new Octokit({ auth: process.env.GH_TOKEN });
 
 async function downloadSwagger() {
     try {
@@ -57,8 +57,8 @@ function modifySwagger(swaggerData, changes) {
 }
 
 async function getCurrentFileContent() {
-    const owner = process.env.GITHUB_REPO_OWNER;
-    const repo = process.env.GITHUB_REPO_NAME;
+    const owner = process.env.GH_REPO_OWNER;
+    const repo = process.env.GH_REPO_NAME;
     const filePath = 'helloasso.json';
 
     try {
@@ -66,7 +66,7 @@ async function getCurrentFileContent() {
             owner,
             repo,
             path: filePath,
-            ref: process.env.GITHUB_BASE_BRANCH
+            ref: process.env.GH_BASE_BRANCH
         });
 
         return Buffer.from(data.content, 'base64').toString('utf8');
@@ -81,9 +81,9 @@ async function getCurrentFileContent() {
 }
 
 async function createPullRequest(jsonString) {
-    const owner = process.env.GITHUB_REPO_OWNER;
-    const repo = process.env.GITHUB_REPO_NAME;
-    const baseBranch = process.env.GITHUB_BASE_BRANCH;
+    const owner = process.env.GH_REPO_OWNER;
+    const repo = process.env.GH_REPO_NAME;
+    const baseBranch = process.env.GH_BASE_BRANCH;
     const branchName = `update-swagger-${Date.now()}`;
 
     const { data: refData } = await octokit.git.getRef({
