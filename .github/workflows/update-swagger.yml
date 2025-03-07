@@ -1,0 +1,28 @@
+name: Mise à jour Swagger manuelle
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-swagger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du repo
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Lancer le script
+        env:
+          SWAGGER_URL: ${{ secrets.SWAGGER_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO_OWNER: helloasso
+          GITHUB_REPO_NAME: helloasso-open-api
+          GITHUB_BASE_BRANCH: main
+        run: node index.js
