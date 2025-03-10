@@ -1,4 +1,4 @@
-name: Mise à jour Swagger manuelle
+name: Mise à jour helloasso-open-api
 
 on:
   schedule:
