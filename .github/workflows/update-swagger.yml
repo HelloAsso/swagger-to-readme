@@ -7,7 +7,6 @@ on:
 
 jobs:
   update-swagger:
-    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout du repo
