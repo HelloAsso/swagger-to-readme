@@ -1,7 +1,7 @@
 {
   "info": {
-    "description" : "HelloAsso auto-generated SDK"
-  },  
+    "description": "HelloAsso auto-generated SDK"
+  },
   "paths": {
     "/organizations/{organizationSlug}/checkout-intents/{checkoutIntentId}": {
       "get": {
@@ -12,7 +12,7 @@
         "description": "Retourne aussi la commande associée. Uniquement dans le cas ou le paiement est autorisé.<br/><br/><b>Votre clientId doit avoir ces autorisations : </b> <br/> Checkout<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -26,7 +26,7 @@
         "description": "Pour tout savoir sur Checkout consultez d'abord notre <a href=\"https://dev.helloasso.com/docs/description\">documentation</a><br/><br/><b>Votre clientId doit avoir ces autorisations : </b> <br/> Checkout<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -40,7 +40,7 @@
         "description": "Permet de récupérer une liste de tous les formulaires visibles correspondant à tous les filtres de l'annuaire jusqu'à ce qu'il soit synchronisé (en utilisant le continuationToken). Si aucun filtre n'est spécifié, aucun filtre n'est appliqué. Les résultats sont classés par date de mise à jour de la visibilité API en ordre croissant. Une fois la liste synchronisée, seuls les formulaires avec une date de mise à jour de la visibilité API supérieure à la dernière forme envoyée sont retournés (toujours en utilisant le continuationToken). Cela concerne les nouveaux formulaires à insérer (souhaitant apparaître de l'annuaire) ainsi que les anciens à supprimer (ne souhaitant plus apparaître dans l'annuaire). Le nombre total de résultats (ou de pages) n'est pas récupérable, donc les informations de pagination retournées indiqueront toujours -1.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> FormOpenDirectory<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -54,7 +54,7 @@
         "description": "Permet de récupérer une liste de toutes les organisations visibles correspondant à tous les filtres de l'annuaire jusqu'à ce qu'il soit synchronisé (en utilisant le continuationToken). Si aucun filtre n'est spécifié, aucun filtre n'est appliqué. Les résultats sont classés par date de mise à jour de la visibilité API en ordre croissant. Une fois la liste synchronisée, seules les organisations avec une date de mise à jour de la visibilité API supérieure à la dernière organisation envoyée sont retournées (toujours en utilisant le continuationToken). Cela concerne les nouvelles organisations à insérer (souhaitant apparaître dans l'annuaire) ainsi que les anciennes à supprimer (ne souhaitant plus apparaître dans l'annuaire). Le nombre total de résultats (ou de pages) n'est pas récupérable, donc les informations de pagination retournées indiqueront toujours -1.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> OrganizationOpenDirectory<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -68,7 +68,7 @@
         "description": "Permet la création d'un événement avec seulement des informations limitées et quelques tarifications simples. L'événement créé de cette manière peut être modifié ultérieurement avec d'autres services<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> FormAdministration<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -82,7 +82,7 @@
         "description": "Permet de récupérer toutes les informations publiques d'un formulaire, qu'il s'agisse de Crowdfunding, d'Adhésion, d'Événement, de Don...<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -96,7 +96,7 @@
         "description": "Liste tous les types de formulaires où l'organisation possède au moins un formulaire. Cela peut également être filtré par états.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -110,7 +110,7 @@
         "description": "Liste tous les formulaires correspondant aux états et types. Si aucun filtre n'est spécifié, aucun filtre n'est appliqué. Les résultats sont classés par date de création en ordre décroissant.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -124,7 +124,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>FormAdmin<br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessTransactions<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -138,7 +138,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>FormAdmin<br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessTransactions<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -152,7 +152,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessTransactions<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -166,7 +166,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>FormAdmin<br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessTransactions<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -180,7 +180,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>FormAdmin<br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessTransactions<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -194,7 +194,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessTransactions<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -208,7 +208,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/>FormAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> RefundManagement<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -222,7 +222,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> OrganizationAdministration<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -232,11 +232,11 @@
         "tags": [
           "Organisation"
         ],
-        "summary": "",
+        "summary": "Obtenir les textes d'information fiscale de l'organisation.",
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> OrganizationAdministration<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -246,11 +246,23 @@
         "tags": [
           "Organisation"
         ],
-        "summary": "",
+        "summary": "Obtenir la configuration des informations juridiques de l'organisation.",
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> OrganizationAdministration<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Organization"
+        ],
+        "summary": "Mettre à jour la configuration des informations juridiques de l'organisation.",
+        "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> OrganizationAdministration<br/><br/>",
+        "security": [
+          {
+            "OAuth2": []
           }
         ]
       }
@@ -264,7 +276,7 @@
         "description": "Obtenir les informations publiques de l'organisation spécifiée.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -278,7 +290,7 @@
         "description": "<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -292,7 +304,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       },
@@ -304,7 +316,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -318,7 +330,7 @@
         "description": "<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       },
@@ -330,7 +342,7 @@
         "description": "<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -344,7 +356,7 @@
         "description": "<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -358,7 +370,7 @@
         "description": "Liste toutes les organisations liées au partenaire. Les résultats sont classés par date de mise à jour de la visibilité API en ordre croissant. Le nombre total de résultats (ou de pages) n'est pas récupérable, donc les informations de pagination retournées indiqueront toujours -1.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -372,7 +384,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>FormAdmin<br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessTransactions<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -386,7 +398,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>FormAdmin<br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessTransactions<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -400,7 +412,7 @@
         "description": "Retourne la liste des paiements selon les paramètres<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessTransactions<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -414,7 +426,7 @@
         "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/>FormAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> RefundManagement<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -428,7 +440,7 @@
         "description": "Attention : Le compte total est désactivé, nous retournons la liste des paiements et le continuationToken. Recherchez des paiements basés sur de nombreux critères La recherche doit utiliser au moins l'un des suivants : - ID de l'organisation : paiements effectués pour cette organisation - Formulaire : Paiements effectués par ce formulaire en utilisant le couple ID du formulaire et type du formulaire - ID de l'utilisateur : Paiements effectués par cet utilisateur Et peut combiner autant de ces filtres. - États : Une liste d'états de paiement à filtrer. Aucun ou vide signifie que tous les paiements seront retournés - Plage de dates : En utilisant du et/ou au, la date est inclusive - Requête de recherche : Une liste de mots qui doivent être contenus soit sur les noms des payeurs ou des utilisateurs ou l'email - Montant du paiement : En centimes, qui doit exactement correspondre au montant des paiements (avec ou sans la contribution) L'ordre des résultats est également personnalisable : - Le champ de tri peut être la date, la date de mise à jour ou la date de création - L'ordre peut être ascendant ou descendant<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessTransactions<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -442,7 +454,61 @@
         "description": "<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> FormOpenDirectory<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationSlug}/tax-receipt/fiscal-receipt-transmitter": {
+      "put": {
+        "tags": [
+          "Reçus fiscaux"
+        ],
+        "summary": "Mettre à jour l'émetteur des reçus fiscaux",
+        "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/>FormAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> RefundManagement<br/><br/>",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationSlug}/tax-receipt/configuration": {
+      "get": {
+        "tags": [
+          "Reçus fiscaux"
+        ],
+        "summary": "Obtenir la configuration des reçus fiscaux",
+        "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/>FormAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> RefundManagement<br/><br/>",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Reçus fiscaux"
+        ],
+        "summary": "Mettre à jour la configuration des reçus fiscaux",
+        "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/>FormAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> RefundManagement<br/><br/>",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/organizations/{organizationSlug}/tax-receipt/preview": {
+      "post": {
+        "tags": [
+          "Reçus fiscaux"
+        ],
+        "summary": "Prévisualiser les reçus fiscaux",
+        "description": "<br/><br/><b>Votre token doit avoir l'un de ces rôles : </b><br/>OrganizationAdmin<br/>FormAdmin<br/><br/>Si vous êtes une <b>association</b>, vous pouvez obtenir ces rôles avec votre client.<br/>Si vous êtes un <b>partenaire</b>, vous pouvez obtenir ces rôles par le flux d'autorisation.<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> RefundManagement<br/><br/>",
+        "security": [
+          {
+            "OAuth2": []
           }
         ]
       }
@@ -456,12 +522,12 @@
         "description": "Renvoie la liste des organisations où l'utilisateur connecté a des droits<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
     },
-      "/values/organization/categories": {
+    "/values/organization/categories": {
       "get": {
         "tags": [
           "Liste de valeurs"
@@ -470,35 +536,35 @@
         "description": "Utilisez ceci afin de construire votre liste de catégories d'organisation<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
     },
-      "/values/tags": {
+    "/values/tags": {
       "get": {
         "tags": [
-        "Liste de valeurs"
+          "Liste de valeurs"
         ],
         "summary": "Obtenir la liste des tags publiques",
         "description": "Utilisez ceci afin de récupérer la liste des étiquettes utilisées<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
     },
-      "/values/company-legal-status": {
+    "/values/company-legal-status": {
       "get": {
         "tags": [
-        "Liste de valeurs"
+          "Liste de valeurs"
         ],
         "summary": "Obtenir la liste des statuts juridiques",
         "description": "<br/><br/><b>Votre clientId doit être autorisé à tous ces privilèges : </b> <br/> AccessPublicData<br/><br/>",
         "security": [
           {
-          "OAuth2": []
+            "OAuth2": []
           }
         ]
       }
@@ -518,6 +584,12 @@
     }
   },
   "x-readme": {
-    "samples-languages": ["shell", "php", "javascript", "python", "node" ]
+    "samples-languages": [
+      "shell",
+      "php",
+      "javascript",
+      "python",
+      "node"
+    ]
   }
 }
