@@ -47,11 +47,10 @@ function modifySwagger(swaggerData, changes) {
     _.merge(swaggerData, changes);
 
     var json = JSON.stringify(swaggerData, null, 2);
-    json = json.replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Directory.', 'ResultsWithPaginationModel_')
-        .replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Forms.', 'ResultsWithPaginationModel_')
-        .replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Statistics.', 'ResultsWithPaginationModel_')
-        .replaceAll('HelloAsso.Api.V5.Models.Common.ResultsWithPaginationModel`1[[HelloAsso.Api.V5.Models.Payment.', 'ResultsWithPaginationModel_')
-        .replaceAll(', HelloAsso.Api.V5.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]', '')
+    json = json.replaceAll(
+        /(?:\w+[.])+(?<a>\w+)`1\[\[(?:\w+[.])+(?<b>\w+)/g,
+        (match, _, __, groups) => `${groups.a}_${groups.b}`
+      );
 
     return json;
 }
