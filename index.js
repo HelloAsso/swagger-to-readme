@@ -49,7 +49,10 @@ function modifySwagger(swaggerData, changes) {
     var json = JSON.stringify(swaggerData, null, 2);
     json = json.replaceAll(
         /(?:\w+[.])+(?<a>\w+)`1\[\[(?:\w+[.])+(?<b>\w+)/g,
-        (match, _, __, groups) => `${groups.a}_${groups.b}`
+        (...args) => {
+    const groups = args.at(-1); // last argument is the groups object
+    return `${groups.a}_${groups.b}`;
+        }
       );
 
     return json;
