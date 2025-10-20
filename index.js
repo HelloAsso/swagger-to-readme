@@ -50,10 +50,10 @@ function modifySwagger(swaggerData, changes) {
     json = json.replaceAll(
         /(?:\w+[.])+(?<a>\w+)`1\[\[(?:\w+[.])+(?<b>\w+)/g,
         (...args) => {
-    const groups = args.at(-1); // last argument is the groups object
-    return `${groups.a}_${groups.b}`;
+            const groups = args.at(-1); // last argument is the groups object
+            return `${groups.a}_${groups.b}`;
         }
-      );
+      ).replaceAll(', HelloAsso.Api.V5.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]', '');
 
     return json;
 }
