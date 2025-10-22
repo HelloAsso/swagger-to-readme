@@ -53,7 +53,7 @@ function modifySwagger(swaggerData, changes) {
             const groups = args.at(-1); // last argument is the groups object
             return `${groups.a}_${groups.b}`;
         }
-      ).replaceAll(', HelloAsso.Api.V5.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]', '');
+      ).replaceAll(/, HelloAsso.Api.V5.\w+, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]/g, '');
 
     return json;
 }
