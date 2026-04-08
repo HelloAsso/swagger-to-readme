@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Installer les dépendances
+      - name: Installer les dépendances|
         run: npm install
 
       - name: Lancer le script
