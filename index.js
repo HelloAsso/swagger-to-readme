@@ -5,7 +5,7 @@ import fs from "fs";
 import { Octokit } from "@octokit/rest";
 
 const swaggerUrl = process.env.SWAGGER_URL;
-const octokit = new Octokit({ auth: process.env.GH_TOKEN });
+const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 async function downloadSwagger() {
     try {
