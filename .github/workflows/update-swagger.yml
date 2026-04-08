@@ -5,10 +5,6 @@ on:
     - cron: '0 0 * * 1'
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   update-swagger:
     runs-on: ubuntu-latest
@@ -27,7 +23,7 @@ jobs:
       - name: Lancer le script
         env:
           SWAGGER_URL: ${{ secrets.SWAGGER_URL }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_REPO_OWNER: helloasso
           GH_REPO_NAME: helloasso-open-api
           GH_BASE_BRANCH: main
